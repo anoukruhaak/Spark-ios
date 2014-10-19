@@ -8,14 +8,26 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mySparks: NSArray?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let navVC: UINavigationController = UINavigationController(nibName: nil, bundle: nil)
+        let mainVC: SparkList = SparkList(nibName: nil, bundle: nil)
+        navVC.viewControllers = [mainVC]
+        
+        mainVC.view.backgroundColor = UIColor.whiteColor()
+        window!.rootViewController = navVC
+        window!.backgroundColor = UIColor.whiteColor()
+        window!.makeKeyAndVisible()
+        
         return true
     }
 

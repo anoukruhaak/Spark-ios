@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3BE19F2E892008055CE /* SparkList.swift */; };
+		9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C019F302BD008055CE /* SparkDetail.swift */; };
+		9D32D3C319F30563008055CE /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C219F30563008055CE /* Spark.swift */; };
+		9D32D3C519F3F360008055CE /* SparkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C419F3F360008055CE /* SparkStore.swift */; };
 		9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EB219E158E900CF92FA /* AppDelegate.swift */; };
-		9D467EB519E158E900CF92FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EB419E158E900CF92FA /* ViewController.swift */; };
-		9D467EB819E158E900CF92FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D467EB619E158E900CF92FA /* Main.storyboard */; };
 		9D467EBA19E158E900CF92FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D467EB919E158E900CF92FA /* Images.xcassets */; };
-		9D467EBD19E158E900CF92FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D467EBB19E158E900CF92FA /* LaunchScreen.xib */; };
 		9D467EC919E158E900CF92FA /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EC819E158E900CF92FA /* SparkTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,13 +27,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D32D3BE19F2E892008055CE /* SparkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkList.swift; path = Spark/SparkList.swift; sourceTree = "<group>"; };
+		9D32D3C019F302BD008055CE /* SparkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkDetail.swift; sourceTree = "<group>"; };
+		9D32D3C219F30563008055CE /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
+		9D32D3C419F3F360008055CE /* SparkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkStore.swift; sourceTree = "<group>"; };
 		9D467EAD19E158E800CF92FA /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D467EB119E158E900CF92FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D467EB219E158E900CF92FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D467EB419E158E900CF92FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9D467EB719E158E900CF92FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D467EB919E158E900CF92FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9D467EBC19E158E900CF92FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D467EC219E158E900CF92FA /* SparkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D467EC719E158E900CF92FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D467EC819E158E900CF92FA /* SparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkTests.swift; sourceTree = "<group>"; };
@@ -56,9 +58,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D32D3C619F3F36E008055CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D32D3C419F3F360008055CE /* SparkStore.swift */,
+				9D32D3C219F30563008055CE /* Spark.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9D32D3C719F3F376008055CE /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				9D32D3BE19F2E892008055CE /* SparkList.swift */,
+				9D32D3C019F302BD008055CE /* SparkDetail.swift */,
+			);
+			name = VCs;
+			sourceTree = "<group>";
+		};
 		9D467EA419E158E800CF92FA = {
 			isa = PBXGroup;
 			children = (
+				9D32D3C619F3F36E008055CE /* Model */,
+				9D32D3C719F3F376008055CE /* VCs */,
 				9D467EAF19E158E800CF92FA /* Spark */,
 				9D467EC519E158E900CF92FA /* SparkTests */,
 				9D467EAE19E158E800CF92FA /* Products */,
@@ -78,10 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				9D467EB219E158E900CF92FA /* AppDelegate.swift */,
-				9D467EB419E158E900CF92FA /* ViewController.swift */,
-				9D467EB619E158E900CF92FA /* Main.storyboard */,
 				9D467EB919E158E900CF92FA /* Images.xcassets */,
-				9D467EBB19E158E900CF92FA /* LaunchScreen.xib */,
 				9D467EB019E158E900CF92FA /* Supporting Files */,
 			);
 			path = Spark;
@@ -192,8 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D467EB819E158E900CF92FA /* Main.storyboard in Resources */,
-				9D467EBD19E158E900CF92FA /* LaunchScreen.xib in Resources */,
 				9D467EBA19E158E900CF92FA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D467EB519E158E900CF92FA /* ViewController.swift in Sources */,
 				9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */,
+				9D32D3C519F3F360008055CE /* SparkStore.swift in Sources */,
+				9D32D3C319F30563008055CE /* Spark.swift in Sources */,
+				9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */,
+				9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,25 +254,6 @@
 			targetProxy = 9D467EC319E158E900CF92FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9D467EB619E158E900CF92FA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D467EB719E158E900CF92FA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9D467EBB19E158E900CF92FA /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D467EBC19E158E900CF92FA /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9D467ECA19E158E900CF92FA /* Debug */ = {
@@ -289,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,8 +340,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Spark/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -349,8 +352,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Spark/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -407,6 +412,7 @@
 				9D467ECE19E158E900CF92FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D467ECF19E158E900CF92FA /* Build configuration list for PBXNativeTarget "SparkTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +421,7 @@
 				9D467ED119E158E900CF92FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
