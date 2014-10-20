@@ -4,6 +4,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 target "Spark" do
+    
+    pod "HOOHoodie"
 
 end
 
