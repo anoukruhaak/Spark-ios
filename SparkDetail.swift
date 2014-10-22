@@ -10,7 +10,7 @@ import UIKit
 
 class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate {
     
-    var spark: Spark = Spark()
+    var spark: Spark = Spark(text: "", date: NSDate())
     let sparkTextField = UITextField(frame: CGRectMake(20.0, 80.0, 280.0, 400.0))
     var didEdit: Bool = false
     
@@ -32,7 +32,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
         
         //Create a label with the spark text
         self.view.addSubview(sparkTextField)
-        sparkTextField.text = spark.sparktext
+        sparkTextField.text = spark.sparkText
         sparkTextField.backgroundColor = UIColor.clearColor()
         sparkTextField.textAlignment = NSTextAlignment.Left
         sparkTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Top
@@ -60,6 +60,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
     func cancelPressed()
     {
         if didEdit {
+            spark.sparkText = sparkTextField.text
             let saveAlert = UIAlertView(title: "Save changes?", message: "Would you like to save the changes made to this spark file?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes, save")
             saveAlert.tag = 101
             saveAlert.show()
@@ -88,8 +89,15 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 && alertView.tag == 101
         {
+            NSLog("SAVE")
+            
+            let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+            
+            delegate.hoodie!.store.saveObject(spark.getDictionary(spark), withType: "spark", onSave:{(object: [NSObject : AnyObject]?, error: NSError?)-> Void in  })
+            
             self.navigationController?.popViewControllerAnimated(false)
 
         }
     }
+    
 }

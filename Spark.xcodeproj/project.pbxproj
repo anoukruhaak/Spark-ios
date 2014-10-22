@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D11513919F735D300AD6334 /* SPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11513819F735D300AD6334 /* SPDataSource.swift */; };
+		9D11513B19F7365A00AD6334 /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11513A19F7365A00AD6334 /* Spark.swift */; };
 		9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3BE19F2E892008055CE /* SparkList.swift */; };
 		9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C019F302BD008055CE /* SparkDetail.swift */; };
-		9D32D3C319F30563008055CE /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C219F30563008055CE /* Spark.swift */; };
-		9D32D3C519F3F360008055CE /* SparkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C419F3F360008055CE /* SparkStore.swift */; };
 		9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EB219E158E900CF92FA /* AppDelegate.swift */; };
 		9D467EBA19E158E900CF92FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D467EB919E158E900CF92FA /* Images.xcassets */; };
 		9D467EC919E158E900CF92FA /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EC819E158E900CF92FA /* SparkTests.swift */; };
@@ -31,10 +31,10 @@
 		097EE4B1A2F8C552A4CB0CC8 /* libPods-Spark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Spark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DC1B0AB8B1E7CC684DA735 /* Pods-Spark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spark/Pods-Spark.release.xcconfig"; sourceTree = "<group>"; };
 		9D11513719F6C9D600AD6334 /* HeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderFile.h; sourceTree = "<group>"; };
+		9D11513819F735D300AD6334 /* SPDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPDataSource.swift; sourceTree = "<group>"; };
+		9D11513A19F7365A00AD6334 /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
 		9D32D3BE19F2E892008055CE /* SparkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkList.swift; path = Spark/SparkList.swift; sourceTree = "<group>"; };
 		9D32D3C019F302BD008055CE /* SparkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkDetail.swift; sourceTree = "<group>"; };
-		9D32D3C219F30563008055CE /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
-		9D32D3C419F3F360008055CE /* SparkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkStore.swift; sourceTree = "<group>"; };
 		9D467EAD19E158E800CF92FA /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D467EB119E158E900CF92FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D467EB219E158E900CF92FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,18 +64,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9D32D3C619F3F36E008055CE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9D32D3C419F3F360008055CE /* SparkStore.swift */,
-				9D32D3C219F30563008055CE /* Spark.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		9D32D3C719F3F376008055CE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				9D11513819F735D300AD6334 /* SPDataSource.swift */,
 				9D32D3BE19F2E892008055CE /* SparkList.swift */,
 				9D32D3C019F302BD008055CE /* SparkDetail.swift */,
 			);
@@ -85,7 +77,7 @@
 		9D467EA419E158E800CF92FA = {
 			isa = PBXGroup;
 			children = (
-				9D32D3C619F3F36E008055CE /* Model */,
+				9D11513A19F7365A00AD6334 /* Spark.swift */,
 				9D32D3C719F3F376008055CE /* VCs */,
 				9D467EAF19E158E800CF92FA /* Spark */,
 				9D467EC519E158E900CF92FA /* SparkTests */,
@@ -291,10 +283,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */,
-				9D32D3C519F3F360008055CE /* SparkStore.swift in Sources */,
-				9D32D3C319F30563008055CE /* Spark.swift in Sources */,
 				9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */,
 				9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */,
+				9D11513919F735D300AD6334 /* SPDataSource.swift in Sources */,
+				9D11513B19F7365A00AD6334 /* Spark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

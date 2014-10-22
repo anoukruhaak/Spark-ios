@@ -8,32 +8,24 @@
 
 import UIKit
 
-class SparkList: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
+class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
     
     let sparksList: UITableView = UITableView(frame: UIScreen.mainScreen().bounds)
-
-    var sparkArray = [Spark]()
-
+    let dataSource = SPDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Sparks"
         
-        
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newSpark")
         
         self.navigationItem.rightBarButtonItem = rightBarButton;
 
         sparksList.delegate = self
-        sparksList.dataSource = self
+        sparksList.dataSource = dataSource
         self.view.addSubview(sparksList)
-        
-        let sparkOne: Spark =  Spark()
-        sparkOne.sparktext = "Create your first spark"
-        sparkArray.append(sparkOne)
-        
-        
+        sparksList.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,35 +42,14 @@ class SparkList: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     func newSpark ()
     {
         let detailVC = SparkDetail()
-        detailVC.spark = Spark()
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    //TableView datasource
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        var cell: UITableViewCell? = sparksList.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
-        
-        if cell == nil
-        {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        }
-        
-        cell!.textLabel?.text = sparkArray[indexPath.row].sparktext
-        
-        return cell!
-    }
-
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sparkArray.count
-    }
     
     //Tableview delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailVC = SparkDetail()
-        detailVC.spark = sparkArray[indexPath.row]
+        detailVC.spark = dataSource.sparkArray[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
 
     }
