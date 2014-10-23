@@ -14,6 +14,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
     let sparkTextField = UITextField(frame: CGRectMake(20.0, 80.0, 280.0, 400.0))
     var didEdit:Bool = false
     var sparkIsNew:Bool?
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
     
     
     convenience init(spark: Spark, newSpark: Bool) {
@@ -39,11 +40,11 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
         super.viewDidLoad()
         
         self.title = "Sparks"
-        self.view.backgroundColor = UIColor.purpleColor().colorWithAlphaComponent(0.5)
+        self.view.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1.0)
         
         //navigation items
        
-        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "backPressed")
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePressed")
         
         let leftBarButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelPressed")
         
@@ -56,7 +57,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
         sparkTextField.backgroundColor = UIColor.clearColor()
         sparkTextField.textAlignment = NSTextAlignment.Left
         sparkTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Top
-        sparkTextField.textColor = UIColor.whiteColor()
+        sparkTextField.textColor = UIColor.blackColor()
         sparkTextField.delegate = self
         sparkTextField.placeholder = "Type away..!"
         
@@ -73,9 +74,16 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
         // Dispose of any resources that can be recreated.
     }
     
-    func backPressed()
+    func donePressed()
     {
-        self.navigationController?.popViewControllerAnimated(false)
+        if didEdit {
+             spark!.sparkText = sparkTextField.text
+            if sparkIsNew! {
+                saveSpark()
+            }else{
+                updateSpark()
+            }
+        }
     }
     
     func cancelPressed()
@@ -85,7 +93,10 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
             let saveAlert = UIAlertView(title: "Save changes?", message: "Would you like to save the changes made to this spark file?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes, save")
             saveAlert.tag = 101
             saveAlert.show()
-        }else{
+            
+        }
+            
+        else{
             self.navigationController?.popViewControllerAnimated(false)
 
         }
@@ -110,15 +121,26 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 && alertView.tag == 101
         {
-            println(spark!.getDictionary(spark!))
-            
-            let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-            
-            delegate.hoodie!.store.saveObject(spark!.getDictionary(spark!), withType: "spark", onSave:{(object: [NSObject : AnyObject]?, error: NSError?)-> Void in  })
-            
-            self.navigationController?.popViewControllerAnimated(false)
-
+            if sparkIsNew!{
+               saveSpark()
+            }else{
+                updateSpark()
+            }
         }
     }
     
+    func saveSpark()
+    {
+        delegate.hoodie!.store.saveObject(spark!.getDictionary(spark!), withType: "spark", onSave:{(object: [NSObject : AnyObject]?, error: NSError?)-> Void in  })
+        
+        self.navigationController?.popViewControllerAnimated(false)
+
+    }
+    
+    func updateSpark()
+    {
+        delegate.hoodie!.store.updateObjectWithID(spark!.sparkId, andType: "spark", withProperties: spark!.getDictionary(spark!), onUpdate: {(object: [NSObject : AnyObject]?, error: NSError?)-> Void in  })
+         self.navigationController?.popViewControllerAnimated(false)
+
+    }
 }

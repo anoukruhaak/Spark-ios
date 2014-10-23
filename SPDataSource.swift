@@ -32,7 +32,7 @@ class SPDataSource: NSObject, UITableViewDataSource {
         
         for sparkDict in unparsedSparks
         {
-            
+            //TODO: fix date stuff
 //            let dateString: String = (sparkDict.objectForKey("createdAt") as String)
 //              let date: NSDate = dateFormatter.dateFromString(dateString)!
             let textString: String = (sparkDict.objectForKey("text")as String)
