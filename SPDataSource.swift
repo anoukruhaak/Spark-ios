@@ -28,16 +28,17 @@ class SPDataSource: NSObject, UITableViewDataSource {
         var mySparks: [Spark] = []
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-DD"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         for sparkDict in unparsedSparks
         {
             //TODO: fix date stuff
-//            let dateString: String = (sparkDict.objectForKey("createdAt") as String)
-//              let date: NSDate = dateFormatter.dateFromString(dateString)!
+            println(sparkDict.objectForKey("createdAt")! as String)
+            let dateString = sparkDict.objectForKey("createdAt")! as String
+            let dateCreated: NSDate = dateFormatter.dateFromString(dateString)!
             let textString: String = (sparkDict.objectForKey("text")as String)
             let idString: String = (sparkDict.objectForKey("id")as String)
-            let spark = Spark(text: textString, date: NSDate())
+            let spark = Spark(text: textString, date: dateCreated)
             spark.sparkId = idString
             
             mySparks.append(spark)

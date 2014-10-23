@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9D11513919F735D300AD6334 /* SPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11513819F735D300AD6334 /* SPDataSource.swift */; };
 		9D11513B19F7365A00AD6334 /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11513A19F7365A00AD6334 /* Spark.swift */; };
+		9D11514019F8BCC900AD6334 /* SPAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11513F19F8BCC900AD6334 /* SPAuthViewController.swift */; };
+		9D11514319F8BD0C00AD6334 /* SPAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11514219F8BD0C00AD6334 /* SPAuthView.swift */; };
 		9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3BE19F2E892008055CE /* SparkList.swift */; };
 		9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C019F302BD008055CE /* SparkDetail.swift */; };
 		9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EB219E158E900CF92FA /* AppDelegate.swift */; };
@@ -33,6 +35,8 @@
 		9D11513719F6C9D600AD6334 /* HeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderFile.h; sourceTree = "<group>"; };
 		9D11513819F735D300AD6334 /* SPDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPDataSource.swift; sourceTree = "<group>"; };
 		9D11513A19F7365A00AD6334 /* Spark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spark.swift; sourceTree = "<group>"; };
+		9D11513F19F8BCC900AD6334 /* SPAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAuthViewController.swift; sourceTree = "<group>"; };
+		9D11514219F8BD0C00AD6334 /* SPAuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAuthView.swift; sourceTree = "<group>"; };
 		9D32D3BE19F2E892008055CE /* SparkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkList.swift; path = Spark/SparkList.swift; sourceTree = "<group>"; };
 		9D32D3C019F302BD008055CE /* SparkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkDetail.swift; sourceTree = "<group>"; };
 		9D467EAD19E158E800CF92FA /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D11513C19F8BC4C00AD6334 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D11513A19F7365A00AD6334 /* Spark.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9D11514119F8BCD300AD6334 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				9D11513F19F8BCC900AD6334 /* SPAuthViewController.swift */,
+				9D11514219F8BD0C00AD6334 /* SPAuthView.swift */,
+			);
+			name = Authentification;
+			sourceTree = "<group>";
+		};
 		9D32D3C719F3F376008055CE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +98,8 @@
 		9D467EA419E158E800CF92FA = {
 			isa = PBXGroup;
 			children = (
-				9D11513A19F7365A00AD6334 /* Spark.swift */,
+				9D11514119F8BCD300AD6334 /* Authentification */,
+				9D11513C19F8BC4C00AD6334 /* Model */,
 				9D32D3C719F3F376008055CE /* VCs */,
 				9D467EAF19E158E800CF92FA /* Spark */,
 				9D467EC519E158E900CF92FA /* SparkTests */,
@@ -285,8 +307,10 @@
 				9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */,
 				9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */,
 				9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */,
+				9D11514019F8BCC900AD6334 /* SPAuthViewController.swift in Sources */,
 				9D11513919F735D300AD6334 /* SPDataSource.swift in Sources */,
 				9D11513B19F7365A00AD6334 /* Spark.swift in Sources */,
+				9D11514319F8BD0C00AD6334 /* SPAuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

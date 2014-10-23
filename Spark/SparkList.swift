@@ -19,8 +19,9 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         self.title = "Sparks"
         
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newSpark")
-        
-        self.navigationItem.rightBarButtonItem = rightBarButton;
+        let leftBarButton = UIBarButtonItem(title: "Log in", style: UIBarButtonItemStyle.Plain, target: self, action: "loginPressed")
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        self.navigationItem.leftBarButtonItem = leftBarButton
 
         sparksList.delegate = self
         sparksList.dataSource = dataSource
@@ -40,13 +41,18 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
     }
     
     
-    func newSpark ()
+    func newSpark()
     {
         var newSpark = Spark(text: "Type away!", date: NSDate())
         let detailVC = SparkDetail(spark: newSpark, newSpark: true)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
+    func loginPressed()
+    {
+        let authVC = SPAuthViewController()
+        self.navigationController?.pushViewController(authVC, animated: true)
+    }
     
     //Tableview delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
