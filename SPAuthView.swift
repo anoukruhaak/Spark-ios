@@ -13,11 +13,15 @@ class SPAuthView: UIView {
     let usernameText: UITextField
     let password: UITextField
     let createAccount: UIButton
+    let login: UIButton
     
     override init(frame: CGRect) {
         usernameText = UITextField(frame: CGRectMake(15, 46, 290, 40))
-        password = UITextField(frame: CGRectMake(15, 126, 290, 40))
-        createAccount = UIButton(frame: CGRectMake(30, 200, 60, 40))
+        password = UITextField(frame: CGRectMake(15, 116, 290, 40))
+        createAccount = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        createAccount.frame = CGRectMake(15, 176, 120, 20)
+        login = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        login.frame = CGRectMake(185, 176, 120, 20)
         
         super.init(frame: frame)
         
@@ -26,12 +30,13 @@ class SPAuthView: UIView {
         self.configureTextField(password, placeholder: "password")
         password.clearsOnBeginEditing = true
         password.secureTextEntry = true
-        self.configureAccountCreated(createAccount)
-        self.configureStaticLayout()
+        self.configureAccountCreated(createAccount, title:"Create Account")
+        self.configureAccountCreated(login, title: "Login")
         
         self.addSubview(usernameText)
         self.addSubview(password)
         self.addSubview(createAccount)
+        self.addSubview(login)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -51,17 +56,11 @@ class SPAuthView: UIView {
         textfield.autocorrectionType = UITextAutocorrectionType.No
     }
     
-    
-    
-    func configureAccountCreated(button: UIButton){
-        button.titleLabel?.textColor = UIColor.blueColor()
-        button.titleLabel?.text = "Create account"
-        button.tintColor = UIColor.redColor()
+    func configureAccountCreated(button: UIButton, title: String){
+        button.setTitle(title, forState: UIControlState.Normal)
+        button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 14.0)
     }
     
-    func configureStaticLayout(){
-       
-        
-}
     
 }

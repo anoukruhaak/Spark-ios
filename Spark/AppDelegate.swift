@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         // Override point for customization after application launch.
         hoodie = HOOHoodie(baseURLString: "http://localhost:6001")
-        hoodie!.account.anonymousSignUpOnFinished({(signUpSuccessfull: Bool?, error: NSError?) -> Void in
-            /*do something*/})
+//        hoodie!.account.anonymousSignUpOnFinished({(signUpSuccessfull: Bool?, error: NSError?) -> Void in
+//            /*do something*/})
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let navVC: UINavigationController = UINavigationController(nibName: nil, bundle: nil)

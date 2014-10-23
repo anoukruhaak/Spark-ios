@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SPAuthViewController: UIViewController, UITextFieldDelegate {
+class SPAuthViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
 
     let authView = SPAuthView(frame: CGRectMake(0, 62, 320, 300))
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,8 @@ class SPAuthViewController: UIViewController, UITextFieldDelegate {
         
         authView.usernameText.delegate = self
         authView.password.delegate = self
+        authView.login.addTarget(self, action: "loginPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        authView.createAccount.addTarget(self, action: "createAccountPressed", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(authView)
 
@@ -39,14 +42,32 @@ class SPAuthViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    /*
-    // MARK: - Navigation
+    func loginPressed() {
+        
+        if ((countElements(authView.usernameText.text) > 0) && countElements(authView.password.text) > 0){
+            delegate.hoodie!.account.signInUserWithName(authView.usernameText.text, password: authView.password.text, onSignIn:{(success: Bool?, error: NSError?) -> Void in
+                
+                 if (error != nil) {
+                    let alert = UIAlertView(title: "Error!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+                    alert.show()
+                 }else{
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            
+            })
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            
+        }else{
+            let alert = UIAlertView(title: "Oops", message: "Please enter username and password", delegate: self, cancelButtonTitle: "Got it!")
+            alert.show()
+        }
+       
     }
-    */
+    
+    func createAccountPressed()
+    {
+        let createVC = SPCreateAccountViewController()
+        self.navigationController?.pushViewController(createVC, animated: true)
+    }
 
 }
