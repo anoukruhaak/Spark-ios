@@ -10,11 +10,31 @@ import UIKit
 
 class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate {
     
-    var spark: Spark = Spark(text: "", date: NSDate())
+    var spark: Spark?
     let sparkTextField = UITextField(frame: CGRectMake(20.0, 80.0, 280.0, 400.0))
-    var didEdit: Bool = false
+    var didEdit:Bool = false
+    var sparkIsNew:Bool?
     
-      
+    
+    convenience init(spark: Spark, newSpark: Bool) {
+        self.init()
+        self.spark = spark
+        sparkIsNew = newSpark
+
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    override init() {
+        super.init()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,13 +52,14 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
         
         //Create a label with the spark text
         self.view.addSubview(sparkTextField)
-        sparkTextField.text = spark.sparkText
+        sparkTextField.text = spark!.sparkText
         sparkTextField.backgroundColor = UIColor.clearColor()
         sparkTextField.textAlignment = NSTextAlignment.Left
         sparkTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Top
         sparkTextField.textColor = UIColor.whiteColor()
         sparkTextField.delegate = self
         sparkTextField.placeholder = "Type away..!"
+        
         
     }
     
@@ -60,7 +81,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
     func cancelPressed()
     {
         if didEdit {
-            spark.sparkText = sparkTextField.text
+            spark!.sparkText = sparkTextField.text
             let saveAlert = UIAlertView(title: "Save changes?", message: "Would you like to save the changes made to this spark file?", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes, save")
             saveAlert.tag = 101
             saveAlert.show()
@@ -89,11 +110,11 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextField
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 && alertView.tag == 101
         {
-            NSLog("SAVE")
+            println(spark!.getDictionary(spark!))
             
             let delegate = UIApplication.sharedApplication().delegate as AppDelegate
             
-            delegate.hoodie!.store.saveObject(spark.getDictionary(spark), withType: "spark", onSave:{(object: [NSObject : AnyObject]?, error: NSError?)-> Void in  })
+            delegate.hoodie!.store.saveObject(spark!.getDictionary(spark!), withType: "spark", onSave:{(object: [NSObject : AnyObject]?, error: NSError?)-> Void in  })
             
             self.navigationController?.popViewControllerAnimated(false)
 

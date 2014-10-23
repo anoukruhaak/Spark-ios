@@ -9,22 +9,31 @@
 import Foundation
 
 class Spark: NSObject {
-    var sparkTitle: NSString = "spark"
-    var sparkText: NSString = ""
+    var sparkTitle: String = "spark"
+    var sparkText: String = ""
     var sparkDate: NSDate = NSDate()
+    var sparkId: String?
     
     init(text:NSString, date:NSDate) {
         super.init()
         
         self.sparkText = text
         self.sparkDate = date
+
     }
     
     func getDictionary(Spark) -> NSDictionary {
-        let sparkDict = ["title":"spark", "text":"(self.sparkTitle)", "date":"(self.sparkDate)"]
+        let sparkDict = ["title":"spark", "text":"\(self.sparkText)", "date":"\(self.sparkDate)"]
         
         return sparkDict
     }
     
+    func description() -> String {
+        super.description
+        
+        return sparkText
+    }
+    
+   
     
 }

@@ -30,6 +30,7 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        sparksList.reloadData()
   
     }
 
@@ -41,16 +42,17 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
     
     func newSpark ()
     {
-        let detailVC = SparkDetail()
+        var newSpark = Spark(text: "Type away!", date: NSDate())
+        let detailVC = SparkDetail(spark: newSpark, newSpark: true)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     
     //Tableview delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailVC = SparkDetail()
-        detailVC.spark = dataSource.sparkArray[indexPath.row]
+        let detailVC = SparkDetail(spark: dataSource.sparkArray[indexPath.row], newSpark: false)
         self.navigationController?.pushViewController(detailVC, animated: true)
 
     }
+    
 }
