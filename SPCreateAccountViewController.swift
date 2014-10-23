@@ -46,8 +46,9 @@ class SPCreateAccountViewController: UIViewController, UITextFieldDelegate {
                 if (error != nil) {
                     let alert = UIAlertView(title: "Error!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
                     alert.show()
+                    
                 }else{
-                    self.navigationController?.popViewControllerAnimated(true)
+                    self.navigationController?.popToRootViewControllerAnimated(true)
                 }
                 
             })
