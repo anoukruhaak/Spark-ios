@@ -12,6 +12,16 @@
 		9D11514019F8BCC900AD6334 /* SPAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11513F19F8BCC900AD6334 /* SPAuthViewController.swift */; };
 		9D11514319F8BD0C00AD6334 /* SPAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11514219F8BD0C00AD6334 /* SPAuthView.swift */; };
 		9D11514519F8DF7F00AD6334 /* SPCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11514419F8DF7F00AD6334 /* SPCreateAccountViewController.swift */; };
+		9D11514819F9AF1700AD6334 /* SPSparkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D11514619F9AF1700AD6334 /* SPSparkCell.swift */; };
+		9D11514919F9AF1700AD6334 /* SPSparkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D11514719F9AF1700AD6334 /* SPSparkCell.xib */; };
+		9D11516E19FFF3CD00AD6334 /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11515D19FFF3CD00AD6334 /* MMDocument.m */; };
+		9D11516F19FFF3CD00AD6334 /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516019FFF3CD00AD6334 /* MMElement.m */; };
+		9D11517019FFF3CD00AD6334 /* MMGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516219FFF3CD00AD6334 /* MMGenerator.m */; };
+		9D11517119FFF3CD00AD6334 /* MMHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516419FFF3CD00AD6334 /* MMHTMLParser.m */; };
+		9D11517219FFF3CD00AD6334 /* MMMarkdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516719FFF3CD00AD6334 /* MMMarkdown.m */; };
+		9D11517319FFF3CD00AD6334 /* MMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516919FFF3CD00AD6334 /* MMParser.m */; };
+		9D11517419FFF3CD00AD6334 /* MMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516B19FFF3CD00AD6334 /* MMScanner.m */; };
+		9D11517519FFF3CD00AD6334 /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D11516D19FFF3CD00AD6334 /* MMSpanParser.m */; };
 		9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3BE19F2E892008055CE /* SparkList.swift */; };
 		9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32D3C019F302BD008055CE /* SparkDetail.swift */; };
 		9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D467EB219E158E900CF92FA /* AppDelegate.swift */; };
@@ -39,6 +49,26 @@
 		9D11513F19F8BCC900AD6334 /* SPAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAuthViewController.swift; sourceTree = "<group>"; };
 		9D11514219F8BD0C00AD6334 /* SPAuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPAuthView.swift; sourceTree = "<group>"; };
 		9D11514419F8DF7F00AD6334 /* SPCreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCreateAccountViewController.swift; sourceTree = "<group>"; };
+		9D11514619F9AF1700AD6334 /* SPSparkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPSparkCell.swift; sourceTree = "<group>"; };
+		9D11514719F9AF1700AD6334 /* SPSparkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSparkCell.xib; sourceTree = "<group>"; };
+		9D11515C19FFF3CD00AD6334 /* MMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument.h; sourceTree = "<group>"; };
+		9D11515D19FFF3CD00AD6334 /* MMDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDocument.m; sourceTree = "<group>"; };
+		9D11515E19FFF3CD00AD6334 /* MMDocument_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument_Private.h; sourceTree = "<group>"; };
+		9D11515F19FFF3CD00AD6334 /* MMElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMElement.h; sourceTree = "<group>"; };
+		9D11516019FFF3CD00AD6334 /* MMElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMElement.m; sourceTree = "<group>"; };
+		9D11516119FFF3CD00AD6334 /* MMGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGenerator.h; sourceTree = "<group>"; };
+		9D11516219FFF3CD00AD6334 /* MMGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMGenerator.m; sourceTree = "<group>"; };
+		9D11516319FFF3CD00AD6334 /* MMHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTMLParser.h; sourceTree = "<group>"; };
+		9D11516419FFF3CD00AD6334 /* MMHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTMLParser.m; sourceTree = "<group>"; };
+		9D11516519FFF3CD00AD6334 /* MMMarkdown-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMMarkdown-Prefix.pch"; sourceTree = "<group>"; };
+		9D11516619FFF3CD00AD6334 /* MMMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMarkdown.h; sourceTree = "<group>"; };
+		9D11516719FFF3CD00AD6334 /* MMMarkdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMarkdown.m; sourceTree = "<group>"; };
+		9D11516819FFF3CD00AD6334 /* MMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMParser.h; sourceTree = "<group>"; };
+		9D11516919FFF3CD00AD6334 /* MMParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMParser.m; sourceTree = "<group>"; };
+		9D11516A19FFF3CD00AD6334 /* MMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMScanner.h; sourceTree = "<group>"; };
+		9D11516B19FFF3CD00AD6334 /* MMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScanner.m; sourceTree = "<group>"; };
+		9D11516C19FFF3CD00AD6334 /* MMSpanParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSpanParser.h; sourceTree = "<group>"; };
+		9D11516D19FFF3CD00AD6334 /* MMSpanParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSpanParser.m; sourceTree = "<group>"; };
 		9D32D3BE19F2E892008055CE /* SparkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SparkList.swift; path = Spark/SparkList.swift; sourceTree = "<group>"; };
 		9D32D3C019F302BD008055CE /* SparkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparkDetail.swift; sourceTree = "<group>"; };
 		9D467EAD19E158E800CF92FA /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +118,41 @@
 			name = Authentification;
 			sourceTree = "<group>";
 		};
+		9D11514A19F9AF1E00AD6334 /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9D11514619F9AF1700AD6334 /* SPSparkCell.swift */,
+				9D11514719F9AF1700AD6334 /* SPSparkCell.xib */,
+			);
+			name = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		9D11515B19FFF3CD00AD6334 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9D11515C19FFF3CD00AD6334 /* MMDocument.h */,
+				9D11515D19FFF3CD00AD6334 /* MMDocument.m */,
+				9D11515E19FFF3CD00AD6334 /* MMDocument_Private.h */,
+				9D11515F19FFF3CD00AD6334 /* MMElement.h */,
+				9D11516019FFF3CD00AD6334 /* MMElement.m */,
+				9D11516119FFF3CD00AD6334 /* MMGenerator.h */,
+				9D11516219FFF3CD00AD6334 /* MMGenerator.m */,
+				9D11516319FFF3CD00AD6334 /* MMHTMLParser.h */,
+				9D11516419FFF3CD00AD6334 /* MMHTMLParser.m */,
+				9D11516519FFF3CD00AD6334 /* MMMarkdown-Prefix.pch */,
+				9D11516619FFF3CD00AD6334 /* MMMarkdown.h */,
+				9D11516719FFF3CD00AD6334 /* MMMarkdown.m */,
+				9D11516819FFF3CD00AD6334 /* MMParser.h */,
+				9D11516919FFF3CD00AD6334 /* MMParser.m */,
+				9D11516A19FFF3CD00AD6334 /* MMScanner.h */,
+				9D11516B19FFF3CD00AD6334 /* MMScanner.m */,
+				9D11516C19FFF3CD00AD6334 /* MMSpanParser.h */,
+				9D11516D19FFF3CD00AD6334 /* MMSpanParser.m */,
+			);
+			name = Source;
+			path = "MMMarkdown-master/Source";
+			sourceTree = "<group>";
+		};
 		9D32D3C719F3F376008055CE /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +166,8 @@
 		9D467EA419E158E800CF92FA = {
 			isa = PBXGroup;
 			children = (
+				9D11515B19FFF3CD00AD6334 /* Source */,
+				9D11514A19F9AF1E00AD6334 /* TableView Cells */,
 				9D11514119F8BCD300AD6334 /* Authentification */,
 				9D11513C19F8BC4C00AD6334 /* Model */,
 				9D32D3C719F3F376008055CE /* VCs */,
@@ -256,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D11514919F9AF1700AD6334 /* SPSparkCell.xib in Resources */,
 				9D467EBA19E158E900CF92FA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,11 +377,20 @@
 			files = (
 				9D467EB319E158E900CF92FA /* AppDelegate.swift in Sources */,
 				9D11514519F8DF7F00AD6334 /* SPCreateAccountViewController.swift in Sources */,
+				9D11517119FFF3CD00AD6334 /* MMHTMLParser.m in Sources */,
 				9D32D3BF19F2E892008055CE /* SparkList.swift in Sources */,
 				9D32D3C119F302BD008055CE /* SparkDetail.swift in Sources */,
+				9D11516F19FFF3CD00AD6334 /* MMElement.m in Sources */,
+				9D11517219FFF3CD00AD6334 /* MMMarkdown.m in Sources */,
+				9D11517019FFF3CD00AD6334 /* MMGenerator.m in Sources */,
+				9D11517319FFF3CD00AD6334 /* MMParser.m in Sources */,
 				9D11514019F8BCC900AD6334 /* SPAuthViewController.swift in Sources */,
+				9D11517419FFF3CD00AD6334 /* MMScanner.m in Sources */,
+				9D11517519FFF3CD00AD6334 /* MMSpanParser.m in Sources */,
 				9D11513919F735D300AD6334 /* SPDataSource.swift in Sources */,
+				9D11514819F9AF1700AD6334 /* SPSparkCell.swift in Sources */,
 				9D11513B19F7365A00AD6334 /* Spark.swift in Sources */,
+				9D11516E19FFF3CD00AD6334 /* MMDocument.m in Sources */,
 				9D11514319F8BD0C00AD6334 /* SPAuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +498,13 @@
 			baseConfigurationReference = B9A71DF6160329660F3D4BE2 /* Pods-Spark.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/HOOHoodie\"",
+					"$(CONFIGURATION_BUILD_DIR)/MMMarkdown-iOS/public/",
+				);
 				INFOPLIST_FILE = Spark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -435,6 +519,13 @@
 			baseConfigurationReference = 95DC1B0AB8B1E7CC684DA735 /* Pods-Spark.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/HOOHoodie\"",
+					"$(CONFIGURATION_BUILD_DIR)/MMMarkdown-iOS/public/",
+				);
 				INFOPLIST_FILE = Spark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

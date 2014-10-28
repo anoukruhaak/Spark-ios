@@ -27,8 +27,6 @@ class SPCreateAccountViewController: UIViewController, UITextFieldDelegate {
         authView.createAccount.hidden = true;
         
         self.view.addSubview(authView)
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

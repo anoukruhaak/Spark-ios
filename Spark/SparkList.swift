@@ -8,10 +8,12 @@
 
 import UIKit
 
-class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
+class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIWebViewDelegate {
     
     let sparksList: UITableView = UITableView(frame: UIScreen.mainScreen().bounds)
     let dataSource = SPDataSource()
+    var heightDict = [String: CGFloat]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +25,16 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         self.navigationItem.rightBarButtonItem = rightBarButton
         self.navigationItem.leftBarButtonItem = leftBarButton
 
+        
+        let nib = UINib(nibName: "SPSparkCell", bundle: nil)
+        sparksList.registerNib(nib, forCellReuseIdentifier: "SparkCell")
         sparksList.delegate = self
-        sparksList.dataSource = dataSource
+        sparksList.backgroundColor = UIColor.clearColor()
         self.view.addSubview(sparksList)
-        sparksList.reloadData()
+        dataSource.controller = self
+        sparksList.dataSource = dataSource
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -59,6 +67,57 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         let detailVC = SparkDetail(spark: dataSource.sparkArray[indexPath.row], newSpark: false)
         self.navigationController?.pushViewController(detailVC, animated: true)
 
+    }
+    
+    
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let sparkId: String = dataSource.sparkArray[indexPath.row].sparkId!
+        let height: Optional = heightDict[sparkId]?
+        
+        if (height != nil){
+            
+            return height!
+        }else{
+            return 80
+        }
+    }
+    
+    //pragma mark - Webview delegate
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+        let cell: SPSparkCell = webView.superview?.superview? as SPSparkCell
+        
+        if (sparksList.indexPathForCell(cell) != nil){
+            NSLog("\(sparksList.indexPathForCell(cell))")
+            let index: NSIndexPath = sparksList.indexPathForCell(cell)!
+            let sparkId: String = dataSource.sparkArray[index.row].sparkId!
+            
+            webView.sizeToFit()
+            //NSLog("HEIGHT:\(webView.scrollView.contentSize.height) for id: \(sparkId)")
+            let newHeight: CGFloat = webView.scrollView.contentSize.height + 5.0
+            let oldHeight: Optional = heightDict[sparkId]?
+            
+            
+            if (oldHeight != nil){
+                if newHeight == oldHeight{
+                    webView.hidden = false
+                }else{
+                    heightDict[sparkId] = newHeight
+                    sparksList.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None)
+                }
+            }else{
+                
+                heightDict[sparkId] = newHeight
+                sparksList.reloadRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.None)
+            }
+        }else{
+            NSLog("Empty cell. weird")
+        }
+       
+        
     }
     
 }

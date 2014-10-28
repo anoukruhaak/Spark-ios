@@ -59,7 +59,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewD
         sparkTextView.textColor = UIColor.blackColor()
         sparkTextView.delegate = self
         sparkTextView.showsVerticalScrollIndicator = true
-        sparkTextView.font = UIFont(name: "Helvetica", size: 16.0)
+        sparkTextView.font = UIFont(name: "HelveticaNeue", size: 16.0)
     
     }
     

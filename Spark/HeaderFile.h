@@ -7,10 +7,12 @@
 //
 
 #import "HOOHoodie.h"
+#import "MMMarkdown.h"
 
 #ifndef Spark_HeaderFile_h
 #define Spark_HeaderFile_h
 
 #import "HOOHoodie.h"
+#import "MMMarkdown.h"
 
 #endif
