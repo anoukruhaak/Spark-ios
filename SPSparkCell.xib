@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <webView userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1G-ao-q4m">
-                        <rect key="frame" x="24" y="8" width="273" height="43"/>
+                        <rect key="frame" x="14" y="8" width="293" height="43"/>
                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                     </webView>
                 </subviews>

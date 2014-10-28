@@ -98,12 +98,7 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
             let newHeight: CGFloat = webView.scrollView.contentSize.height + 5.0
             let oldHeight: Optional = heightDict[sparkId]?
             
-            if (webView.scrollView.contentSize.width > 320.0) {
-                webView.scalesPageToFit = true
-            }else{
-                webView.sizeToFit()
-            }
-            
+            webView.sizeToFit()
             
             if (oldHeight != nil){
                 if newHeight == oldHeight{
