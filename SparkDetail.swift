@@ -63,6 +63,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewD
         sparkTextView.font = UIFont(name: "HelveticaNeue", size: 16.0)
         sparkTextView.textContainerInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
         sparkTextView.contentInset = UIEdgeInsetsMake(-35.0, 0.0, 0.0, 0.0)
+        sparkTextView.allowsEditingTextAttributes = false
     
     }
     
@@ -85,6 +86,9 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewD
             }else{
                 updateSpark()
             }
+        }else{
+            self.navigationController?.popViewControllerAnimated(false)
+
         }
     }
     
