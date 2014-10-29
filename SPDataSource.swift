@@ -56,8 +56,9 @@ class SPDataSource: NSObject, UITableViewDataSource, UIWebViewDelegate {
         let error: NSErrorPointer = NSErrorPointer()
         var baseHTMLString = MMMarkdown.HTMLStringWithMarkdown("\(spark.sparkText)", error: error)
         
-       let newHTMLString = "<style> img{max-width:300px} *{max-width:300px; font: 16px \"Helvetica\";} strong{color: green} h1{font-size: 26px;} h2{font-size: 22px;} h3{font-size: 18px;}</style>\(baseHTMLString)"
+       let newHTMLString = "<style> img{max-width:300px} h1, h2, h3, body{max-width:300px; font: 16px \"Helvetica\";} strong{color: green} h1{font-size: 26px;} h2{font-size: 22px;} h3{font-size: 18px;}</style>\(baseHTMLString)"
         NSLog("\(newHTMLString)")
+        
         cell.webContent.delegate = controller!
         cell.webContent.hidden = true;
         cell.webContent.loadHTMLString(newHTMLString, baseURL: nil)

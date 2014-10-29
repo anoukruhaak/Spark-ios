@@ -11,7 +11,7 @@ import UIKit
 class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, UIAlertViewDelegate {
     
     var spark: Spark?
-    let sparkTextView = UITextView(frame: CGRectMake(20.0, 66.0, 280.0, 280.0))
+    let sparkTextView = UITextView(frame: CGRectMake(20.0, 75.0, 280.0, 250.0))
     var didEdit:Bool = false
     var sparkIsNew:Bool?
     let delegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -21,7 +21,6 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewD
         self.init()
         self.spark = spark
         sparkIsNew = newSpark
-
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -40,7 +39,7 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewD
         super.viewDidLoad()
         
         self.title = "Sparks"
-        self.view.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(1.0)
+        self.view.backgroundColor = UIColor.whiteColor()
         
         //navigation items
        
@@ -54,12 +53,16 @@ class SparkDetail: UIViewController, UINavigationControllerDelegate, UITextViewD
         //Create a label with the spark text
         self.view.addSubview(sparkTextView)
         sparkTextView.text = spark!.sparkText
+        sparkTextView.layer.cornerRadius = 6.0
+        sparkTextView.layer.borderWidth = 0.5
         sparkTextView.backgroundColor = UIColor.whiteColor()
         sparkTextView.textAlignment = NSTextAlignment.Left
         sparkTextView.textColor = UIColor.blackColor()
         sparkTextView.delegate = self
         sparkTextView.showsVerticalScrollIndicator = true
         sparkTextView.font = UIFont(name: "HelveticaNeue", size: 16.0)
+        sparkTextView.textContainerInset = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0)
+        sparkTextView.contentInset = UIEdgeInsetsMake(-35.0, 0.0, 0.0, 0.0)
     
     }
     
