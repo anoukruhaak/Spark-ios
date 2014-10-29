@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIWebViewDelegate {
+class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDelegate, UIWebViewDelegate,UIGestureRecognizerDelegate {
     
     let sparksList: UITableView = UITableView(frame: UIScreen.mainScreen().bounds)
     let dataSource = SPDataSource()
@@ -33,8 +33,12 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         self.view.addSubview(sparksList)
         dataSource.controller = self
         sparksList.dataSource = dataSource
+        sparksList.separatorStyle = UITableViewCellSeparatorStyle.None
         
-
+        let tapGesture = UITapGestureRecognizer(target: self, action: "didTapCell:")
+        tapGesture.delegate = self
+        sparksList.addGestureRecognizer(tapGesture)
+  
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -67,10 +71,7 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         let detailVC = SparkDetail(spark: dataSource.sparkArray[indexPath.row], newSpark: false)
         self.navigationController?.pushViewController(detailVC, animated: true)
 
-    }
-    
-    
-    
+    } 
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
@@ -83,6 +84,18 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         }else{
             return 80
         }
+    }
+    
+    func didTapCell(tap:UITapGestureRecognizer)
+    {
+        let point: CGPoint = tap.locationInView(sparksList)
+        let index: NSIndexPath? = sparksList.indexPathForRowAtPoint(point)
+        
+        if (index != nil)
+        {
+            tableView(sparksList, didSelectRowAtIndexPath: index!)
+        }
+ 
     }
     
     //pragma mark - Webview delegate
@@ -116,7 +129,22 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
             NSLog("Empty cell. weird")
         }
        
-        
     }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        if navigationType == UIWebViewNavigationType.LinkClicked
+        {
+            UIApplication.sharedApplication().openURL(request.URL)
+            return false
+        }
+        
+        return true
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     
 }

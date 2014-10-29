@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SPSparkCell: UITableViewCell {
+class SPSparkCell: UITableViewCell{
     
 
     @IBOutlet weak var webContent: UIWebView!
@@ -28,6 +28,5 @@ class SPSparkCell: UITableViewCell {
         super.layoutSubviews()
         
     }
-    
-    
+
 }

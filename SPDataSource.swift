@@ -63,6 +63,7 @@ class SPDataSource: NSObject, UITableViewDataSource, UIWebViewDelegate {
         cell.webContent.hidden = true;
         cell.webContent.loadHTMLString(newHTMLString, baseURL: nil)
         cell.webContent.scrollView.scrollEnabled = false
+        
         return cell
     }
     
