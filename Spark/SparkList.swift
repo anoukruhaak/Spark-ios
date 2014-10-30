@@ -13,6 +13,7 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
     let sparksList: UITableView = UITableView(frame: UIScreen.mainScreen().bounds)
     let dataSource = SPDataSource()
     var heightDict = [String: CGFloat]()
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
 
 
     override func viewDidLoad() {
@@ -21,10 +22,8 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
         self.title = "Sparks"
         
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newSpark")
-        let leftBarButton = UIBarButtonItem(title: "Log in", style: UIBarButtonItemStyle.Plain, target: self, action: "loginPressed")
+        
         self.navigationItem.rightBarButtonItem = rightBarButton
-        self.navigationItem.leftBarButtonItem = leftBarButton
-
         
         let nib = UINib(nibName: "SPSparkCell", bundle: nil)
         sparksList.registerNib(nib, forCellReuseIdentifier: "SparkCell")
@@ -43,6 +42,17 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        
+        var leftBarButton: UIBarButtonItem
+        if isLoggedIn()
+        {
+            leftBarButton = UIBarButtonItem(title: "Log out", style: UIBarButtonItemStyle.Plain, target: self, action: "logoutPressed")
+            
+        }else{
+            leftBarButton = UIBarButtonItem(title: "Log in", style: UIBarButtonItemStyle.Plain, target: self, action: "loginPressed")
+        }
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
         sparksList.reloadData()
   
     }
@@ -64,6 +74,24 @@ class SparkList: UIViewController, UITableViewDelegate, UINavigationControllerDe
     {
         let authVC = SPAuthViewController()
         self.navigationController?.pushViewController(authVC, animated: true)
+    }
+    
+    func logoutPressed()
+    {
+        delegate.hoodie!.account.signOutOnFinished{(success: Bool?, error: NSError?) -> Void in
+            
+            if (error != nil) {
+                setUserLoggedIn(true)
+                let alert = UIAlertView(title: "Error!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
+                alert.show()
+            }else{
+                setUserLoggedIn(false)
+                let alert = UIAlertView(title: "Logged out!", message: "Please log back in to continue using sparks", delegate: self, cancelButtonTitle: "Ok")
+                alert.show()
+                let authVC = SPAuthViewController()
+                self.navigationController?.pushViewController(authVC, animated: true)
+            }
+        }
     }
     
     //Tableview delegate

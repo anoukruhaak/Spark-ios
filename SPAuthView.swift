@@ -30,8 +30,8 @@ class SPAuthView: UIView {
         self.configureTextField(password, placeholder: "password")
         password.clearsOnBeginEditing = true
         password.secureTextEntry = true
-        self.configureAccountCreated(createAccount, title:"Create Account")
-        self.configureAccountCreated(login, title: "Login")
+        self.configureAccountCreated(createAccount, title:"Create Account", color: UIColor.whiteColor(), textColor:UIColor.blueColor())
+        self.configureAccountCreated(login, title:"Login", color: UIColor.lightGrayColor(), textColor:UIColor.whiteColor())
         
         self.addSubview(usernameText)
         self.addSubview(password)
@@ -56,9 +56,10 @@ class SPAuthView: UIView {
         textfield.autocorrectionType = UITextAutocorrectionType.No
     }
     
-    func configureAccountCreated(button: UIButton, title: String){
+    func configureAccountCreated(button: UIButton, title: String, color: UIColor, textColor: UIColor){
         button.setTitle(title, forState: UIControlState.Normal)
-        button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        button.setTitleColor(textColor, forState: UIControlState.Normal)
+        button.backgroundColor = color
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 14.0)
     }
     

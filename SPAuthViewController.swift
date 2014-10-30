@@ -8,6 +8,21 @@
 
 import UIKit
 
+func setUserLoggedIn(loggedIN: Bool) {
+    NSUserDefaults.standardUserDefaults().setBool(loggedIN, forKey: "loggedIn")
+}
+
+func isLoggedIn()-> Bool{
+    let state: Bool? =  NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
+    
+    if (state != nil)
+    {
+        return state!
+    }else{
+        return false
+    }
+}
+
 class SPAuthViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
 
     let authView = SPAuthView(frame: CGRectMake(0, 62, 320, 300))
@@ -24,6 +39,11 @@ class SPAuthViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
         authView.password.delegate = self
         authView.login.addTarget(self, action: "loginPressed", forControlEvents: UIControlEvents.TouchUpInside)
         authView.createAccount.addTarget(self, action: "createAccountPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        if isAccountCreated()
+        {
+            authView.createAccount.hidden = true
+        }
         
         self.view.addSubview(authView)
 
@@ -48,9 +68,11 @@ class SPAuthViewController: UIViewController, UITextFieldDelegate, UIAlertViewDe
             delegate.hoodie!.account.signInUserWithName(authView.usernameText.text, password: authView.password.text, onSignIn:{(success: Bool?, error: NSError?) -> Void in
                 
                  if (error != nil) {
+                    setUserLoggedIn(false)
                     let alert = UIAlertView(title: "Error!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
                     alert.show()
                  }else{
+                     setUserLoggedIn(true)
                     self.navigationController?.popViewControllerAnimated(true)
                 }
             

@@ -8,6 +8,22 @@
 
 import UIKit
 
+func setAccountCreated(created: Bool) {
+    NSUserDefaults.standardUserDefaults().setBool(created, forKey: "accountCreated")
+}
+
+func isAccountCreated()-> Bool{
+    let state: Bool? =  NSUserDefaults.standardUserDefaults().boolForKey("accountCreated")
+    
+    if (state != nil)
+    {
+        return state!
+    }else{
+        return false
+    }
+}
+
+
 class SPCreateAccountViewController: UIViewController, UITextFieldDelegate {
 
     let authView = SPAuthView(frame: CGRectMake(0, 62, 320, 300))
@@ -45,8 +61,16 @@ class SPCreateAccountViewController: UIViewController, UITextFieldDelegate {
                     let alert = UIAlertView(title: "Error!", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "Ok")
                     alert.show()
                     
+                    setAccountCreated(false)
+                    
                 }else{
-                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    
+                    let alert = UIAlertView(title: "Account created", message: "Please log in and start using Spark!", delegate: self, cancelButtonTitle: "Ok")
+                    alert.show()
+                    
+                    setAccountCreated(true)
+                    
+                    self.navigationController?.popViewControllerAnimated(true)
                 }
                 
             })
